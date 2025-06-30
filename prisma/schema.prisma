@@ -1,0 +1,18 @@
+src/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── auth/
+│       ├── signin/
+│       │   └── page.tsx
+│       └── signup/
+│           └── page.tsx
+├── components/
+│   ├── Navbar.tsx
+│   ├── CountryDropdown.tsx
+│   └── ...
+├── lib/
+│   ├── firebase.ts
+│   └── prisma.ts
+├── styles/
+│   └── globals.css
