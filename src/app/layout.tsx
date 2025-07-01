@@ -5,8 +5,8 @@ import Navbar from "./components/Navbar";
 import BottomNavbar from "./components/BottomNavbar";
 
 const inter = Inter({
-  variable: "--font-inter",
   subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -16,9 +16,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="fr">
       <body className={`${inter.variable} antialiased bg-white`}>
