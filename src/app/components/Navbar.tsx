@@ -65,8 +65,6 @@ const Navbar = () => {
     const unsubscribeAuth = onAuthStateChanged(auth, async (user) => {
       if (user) {
         setIsLoggedIn(true);
-
-        // ✅ Correct way to fetch user data
         try {
           const userDocRef = doc(db, 'users', user.uid);
           const userDocSnap = await getDoc(userDocRef);
@@ -246,11 +244,12 @@ const Navbar = () => {
         </div>
       </div>
 
-   <div className="overflow-hidden whitespace-nowrap bg-[#232f3e] text-white text-sm py-2">
-  <div className="animate-marquee inline-block px-4">
-    📢 {announcement}
-  </div>
-</div>
+      {announcement && (
+        <div className="overflow-hidden whitespace-nowrap bg-[#232f3e] text-white text-sm py-2">
+          <div className="animate-marquee inline-block px-4">
+            📢 {announcement}
+          </div>
+        </div>
       )}
     </div>
   );
