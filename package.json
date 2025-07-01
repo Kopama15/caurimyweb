@@ -33,5 +33,18 @@
     "prisma": "^6.10.1",
     "tailwindcss": "^4.1.11",
     "typescript": "^5"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kopama15/caurimyweb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kopama15/caurimyweb/issues"
+  },
+  "homepage": "https://github.com/Kopama15/caurimyweb#readme"
 }
