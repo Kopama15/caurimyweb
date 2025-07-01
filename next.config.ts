@@ -1,7 +1,9 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  output: "export", // Enables static HTML export for Firebase Hosting
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',
+  images: {
+    unoptimized: true, // ✅ Disable optimization for static export
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
