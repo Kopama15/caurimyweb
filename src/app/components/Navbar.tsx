@@ -246,11 +246,11 @@ const Navbar = () => {
         </div>
       </div>
 
-      {announcement && (
-        <div className="bg-[#232f3e] text-white text-sm py-2 px-4 overflow-x-auto whitespace-nowrap">
-          <marquee behavior="scroll" direction="left" scrollamount="5">
-            📢 {announcement}
-          </marquee>
+   {announcement && (
+        <div className="bg-[#232f3e] text-white text-sm py-2 overflow-hidden whitespace-nowrap">
+          <div className="animate-marquee inline-block min-w-full">
+            <span className="px-4">{announcement}</span>
+          </div>
         </div>
       )}
     </div>
