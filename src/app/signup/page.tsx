@@ -37,7 +37,7 @@ export default function SignUpPage() {
 
   useEffect(() => {
     if (mode === 'phone' && recaptchaRef.current) {
-      if (!window.recaptchaVerifier || window.recaptchaVerifier.destroyed) {
+      if (!window.recaptchaVerifier) {
         window.recaptchaVerifier = new RecaptchaVerifier(auth, recaptchaRef.current, {
           size: 'invisible',
           callback: () => console.log('reCAPTCHA solved'),
@@ -78,8 +78,8 @@ export default function SignUpPage() {
     if (!phone.startsWith('+')) return alert('Entrez un numéro valide au format international (+...)');
 
     try {
-      if (!window.recaptchaVerifier) {
-        window.recaptchaVerifier = new RecaptchaVerifier(auth, recaptchaRef.current!, {
+      if (!window.recaptchaVerifier && recaptchaRef.current) {
+        window.recaptchaVerifier = new RecaptchaVerifier(auth, recaptchaRef.current, {
           size: 'invisible',
           callback: () => console.log('reCAPTCHA passed'),
         });
