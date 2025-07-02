@@ -24,7 +24,6 @@ const Navbar = () => {
   const [flagUrl, setFlagUrl] = useState('https://flagcdn.com/fr.svg');
   const [announcement, setAnnouncement] = useState('');
 
-  // ✅ Greeting logic in French based on hour
   useEffect(() => {
     const updateGreeting = () => {
       const hour = new Date().getHours();
@@ -34,7 +33,7 @@ const Navbar = () => {
     };
 
     updateGreeting();
-    const interval = setInterval(updateGreeting, 60000); // every minute
+    const interval = setInterval(updateGreeting, 60000);
     return () => clearInterval(interval);
   }, []);
 
@@ -142,13 +141,9 @@ const Navbar = () => {
   return (
     <div className="w-full bg-[#131921] text-white text-sm font-medium">
       <div className="flex flex-wrap items-center px-4 py-2 gap-4 md:gap-2 justify-between md:justify-start">
-        {/* Logo */}
-        <div className="flex items-center gap-1 cursor-pointer" onClick={() => router.push('/')}>
-          <Image src="/cauri-icon.png" alt="Logo Cauri" width={24} height={24} />
-          <h1 className="text-2xl font-bold text-blue-500">Cauri</h1>
+        <div className="flex items-center gap-1 cursor-pointer" onClick={() => router.push('/')}>...
         </div>
 
-        {/* Location */}
         <div className="flex items-center text-xs cursor-pointer max-w-xs">
           <MdLocationOn size={20} className="mr-1" />
           <div>
@@ -157,42 +152,16 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Search */}
         <div className="flex flex-grow bg-white rounded overflow-hidden text-black max-w-3xl min-w-[200px]">
-          <select
-            className="bg-gray-100 px-2 border-r border-gray-300 text-sm"
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-          >
-            {['Tout', 'Électronique', 'Vêtements', 'Maison', 'Livres', 'Jouets', 'Beauté', 'Épicerie'].map((category) => (
-              <option key={category} value={category}>{category}</option>
-            ))}
-          </select>
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-            placeholder={`Rechercher dans ${selectedCategory}`}
-            className="flex-grow px-2 py-2 outline-none"
-          />
-          <button
-            className="bg-yellow-400 px-4 flex items-center justify-center"
-            onClick={handleSearch}
-            title="Rechercher"
-          >
-            <FaSearch />
-          </button>
+          ...
         </div>
 
-        {/* Language */}
         <div className="flex items-center space-x-1 cursor-pointer">
           <img src={flagUrl} alt={languageCode.toUpperCase()} width={20} height={20} className="w-5 h-5" />
           <span className="uppercase">{languageCode}</span>
           <IoMdArrowDropdown />
         </div>
 
-        {/* Greeting & Auth */}
         <div className="flex flex-col justify-center text-xs">
           <span className="text-gray-300">{greeting}, {userName}</span>
           {isLoggedIn ? (
@@ -212,7 +181,6 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Orders */}
         <div className="hidden md:flex flex-col justify-center text-left cursor-pointer">
           <span onClick={() => router.push('/retours')} className="text-gray-300 hover:underline">Retours</span>
           <span onClick={() => router.push('/commandes')} className="font-semibold hover:underline">
@@ -220,17 +188,15 @@ const Navbar = () => {
           </span>
         </div>
 
-        {/* Wallet */}
         <div
           onClick={() => router.push(isLoggedIn ? '/mon-portefeuille' : '/signin')}
           title="Détails portefeuille"
-          className="hidden md:flex flex-col justify-center items-end cursor-pointer hover:underline"
+          className="flex flex-col justify-center items-end cursor-pointer hover:underline"
         >
           <span className="text-green-400 font-bold">FCFA {wallet.toLocaleString()}</span>
           <span className="text-xs">Portefeuille</span>
         </div>
 
-        {/* Cart */}
         <div
           onClick={() => router.push('/panier')}
           className="relative flex items-center cursor-pointer hover:underline"
@@ -246,7 +212,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Announcement Bar */}
       {announcement && (
         <div className="overflow-hidden whitespace-nowrap bg-[#232f3e] text-white text-sm py-2">
           <div className="animate-marquee inline-block px-4">
